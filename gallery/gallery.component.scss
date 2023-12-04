@@ -1,0 +1,20 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .image {
+    flex-basis: calc(50% - 10px);
+    margin: 5px;
+  }
+  
+  .image img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Stile per la modale */
+  .modal-body img {
+    max-width: 100%;
+  }
+  

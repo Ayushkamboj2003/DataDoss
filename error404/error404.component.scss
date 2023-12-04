@@ -1,0 +1,34 @@
+.myToast {
+  z-index: 4000;
+  // min-height: 150px;
+  background-color: #f05e4f;
+  color: #ffffff;
+  font-weight: bolder;
+  bottom: 110px;
+  right: 100px;
+  display: block;
+  position: absolute;
+  padding: 16px 17px;
+  border-radius: 5px;
+  animation-name: fadeerrortoast;
+  animation-duration: 5s;
+  animation-delay: 0ms;
+  opacity: 0;
+  transform: translateY(0) ;
+}
+
+@keyframes fadeerrortoast {
+  0% {opacity: 0; }
+  20% {opacity: 1;}
+  80% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+// .fade-out-element {
+//     opacity: 0;
+//     // transition: opacity 1s ease-in-out;
+//   }
+  
+//   .fade-out-element.fade-out {
+//     opacity: 0;
+//   }

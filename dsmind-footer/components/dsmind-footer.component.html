@@ -1,0 +1,23 @@
+<div class="KwFooterbar" [ngClass] = "isAlarmactive ? 'kwAlarmOn' : 'kwAlarmOff'">
+  <div class="KwFooterBar1">
+        <div class="kwLogoCliente" id="kwLogoCliente">
+            <img src="/assets/images/logo_siliconiton.png"/>
+        </div>
+            <div class="KwStatoMacchina">
+                <div class="card-header">Stato Macchina</div>
+                
+               
+                <div class="card-body">
+                    <h5 class="card-title">{{sMachineStatusDescription}}</h5>
+                </div>  
+            </div>
+        <div *ngIf="isAlarmactive" class="KwListaAllarmiMacchina">
+            <div class="card-header">Allarmi</div>
+            <div class="card-body">
+         <ng-container *ngFor="let alarm of alarms.alarms">
+                    <div *ngIf="alarm.code != null">{{alarm.description}}</div>
+         </ng-container>
+     </div>
+    </div>
+  </div>
+</div>

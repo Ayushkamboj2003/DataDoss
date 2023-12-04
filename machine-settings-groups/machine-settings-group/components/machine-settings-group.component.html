@@ -1,0 +1,429 @@
+<abp-page [title]="'::MachineSettingsGroups' | abpLocalization">
+    <abp-page-toolbar-container class="col">
+      <div class="text-lg-end pt-2">
+        <button
+          *abpPermission="'HMI.MachineSettingsGroups.Create'"
+          class="btn btn-primary btn-sm"
+          type="button"
+          (click)="create()"
+        >
+          <i class="fa fa-plus me-1" aria-hidden="true"></i>
+          {{ '::NewMachineSettingsGroup' | abpLocalization }}
+        </button>
+      </div>
+    </abp-page-toolbar-container>
+  
+    <abp-advanced-entity-filters localizationSourceName="" [list]="list">
+      <abp-advanced-entity-filters-form>
+        <form #filterForm (keyup.enter)="list.get()">
+          <div class="row">
+            <div class="col-12 col-sm-auto">
+              <div class="mb-3">
+                <label class="form-label" for="groupDescriptionFilter">
+                  {{ '::GroupDescription' | abpLocalization }}
+                </label>
+  
+                <input
+                  id="groupDescriptionFilter"
+                  class="form-control"
+                  [(ngModel)]="filters.groupDescription"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+              </div>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <div class="mb-3">
+                <label class="form-label" for="cssClassFilter">
+                  {{ '::CssClass' | abpLocalization }}
+                </label>
+  
+                <input
+                  id="cssClassFilter"
+                  class="form-control"
+                  [(ngModel)]="filters.cssClass"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+              </div>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <div class="mb-3">
+                <label class="form-label" for="isEnableableFilter">
+                  {{ '::IsEnableable' | abpLocalization }}
+                </label>
+  
+                <select
+                  name="isEnableable"
+                  id="isEnableableFilter"
+                  class="form-select form-control"
+                  [(ngModel)]="filters.isEnableable"
+                  [ngModelOptions]="{ standalone: true }"
+                  (change)="list.get()"
+                >
+                  <option [ngValue]=""></option>
+                  <option [ngValue]="true">{{ 'AbpUi::Yes' | abpLocalization }}</option>
+                  <option [ngValue]="false">{{ 'AbpUi::No' | abpLocalization }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <div class="mb-3">
+                <label class="form-label" for="minRenderingOrder">
+                  {{ '::MinRenderingOrder' | abpLocalization }}
+                </label>
+  
+                <input
+                  id="minRenderingOrder"
+                  type="number"
+                  class="form-control"
+                  [(ngModel)]="filters.renderingOrderMin"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+              </div>
+            </div>
+  
+            <div class="col-12 col-sm-auto">
+              <div class="mb-3">
+                <label class="form-label" for="maxRenderingOrder">
+                  {{ '::MaxRenderingOrder' | abpLocalization }}
+                </label>
+  
+                <input
+                  id="maxRenderingOrder"
+                  type="number"
+                  class="form-control"
+                  [(ngModel)]="filters.renderingOrderMax"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+              </div>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <div class="mb-3">
+                <label class="form-label" for="minParentToolRenderingOrder">
+                  {{ '::MinParentToolRenderingOrder' | abpLocalization }}
+                </label>
+  
+                <input
+                  id="minParentToolRenderingOrder"
+                  type="number"
+                  class="form-control"
+                  [(ngModel)]="filters.parentToolRenderingOrderMin"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+              </div>
+            </div>
+  
+            <div class="col-12 col-sm-auto">
+              <div class="mb-3">
+                <label class="form-label" for="maxParentToolRenderingOrder">
+                  {{ '::MaxParentToolRenderingOrder' | abpLocalization }}
+                </label>
+  
+                <input
+                  id="maxParentToolRenderingOrder"
+                  type="number"
+                  class="form-control"
+                  [(ngModel)]="filters.parentToolRenderingOrderMax"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+              </div>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <div class="mb-3">
+                <label class="form-label" for="minParentToolGroupId">
+                  {{ '::MinParentToolGroupId' | abpLocalization }}
+                </label>
+  
+                <input
+                  id="minParentToolSettingsGroupId"
+                  type="number"
+                  class="form-control"
+                  [(ngModel)]="filters.parentToolGroupIdMin"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+              </div>
+            </div>
+  
+            <div class="col-12 col-sm-auto">
+              <div class="mb-3">
+                <label class="form-label" for="maxParentToolGroupId">
+                  {{ '::MaxParentToolGroupId' | abpLocalization }}
+                </label>
+  
+                <input
+                  id="maxParentToolGroupId"
+                  type="number"
+                  class="form-control"
+                  [(ngModel)]="filters.parentToolGroupIdMax"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+              </div>
+            </div>
+            <!-- <div class="col-12 col-sm-auto">
+              <div class="mb-3">
+                <label class="form-label" for="toolIdFilter">
+                  {{ '::Tool' | abpLocalization }}
+                </label>
+                <abp-lookup-input
+                  cid="toolIdFilter"
+                  displayNameProp="name"
+                  lookupNameProp="displayName"
+                  [getFn]="service.getToolLookup"
+                  [(ngModel)]="filters.toolId"
+                  [ngModelOptions]="{ standalone: true }"
+                ></abp-lookup-input>
+              </div>
+            </div> -->
+  
+            <div class="col-12 col-sm-auto align-self-end mb-3">
+              <div class="row">
+                <div class="col-6 col-sm-auto d-grid">
+                  <button type="button" class="btn btn-outline-primary" (click)="clearFilters()">
+                    <span>{{ 'AbpUi::Clear' | abpLocalization }}</span>
+                  </button>
+                </div>
+                <div class="col-6 col-sm-auto d-grid">
+                  <button type="button" class="btn btn-primary" (click)="list.get()">
+                    <span>{{ 'AbpUi::Refresh' | abpLocalization }}</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </abp-advanced-entity-filters-form>
+    </abp-advanced-entity-filters>
+  
+    <div class="card">
+      <div class="card-body">
+        <ngx-datatable [rows]="data.items" [count]="data.totalCount" [list]="list" default>
+          <ngx-datatable-column
+            [name]="'AbpUi::Actions' | abpLocalization"
+            [maxWidth]="150"
+            [width]="150"
+            [sortable]="false"
+          >
+            <ng-template let-row="row" let-i="rowIndex" ngx-datatable-cell-template>
+              <div ngbDropdown container="body" class="d-inline-block">
+                <button
+                  class="btn btn-primary btn-sm dropdown-toggle"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  ngbDropdownToggle
+                >
+                  <i class="fa fa-cog me-1" aria-hidden="true"></i>
+                  {{ 'AbpUi::Actions' | abpLocalization }}
+                </button>
+  
+                <div ngbDropdownMenu>
+                  <button
+                    ngbDropdownItem
+                    *abpPermission="'HMI.MachineSettingsGroups.Edit'"
+                    (click)="update(row)"
+                  >
+                    {{ 'AbpUi::Edit' | abpLocalization }}
+                  </button>
+  
+                  <button
+                    ngbDropdownItem
+                    *abpPermission="'HMI.MachineSettingsGroups.Delete'"
+                    (click)="delete(row)"
+                  >
+                    {{ 'AbpUi::Delete' | abpLocalization }}
+                  </button>
+                </div>
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+  
+          <ngx-datatable-column
+            name="{{ '::GroupDescription' | abpLocalization }}"
+            prop="machineSettingsGroup.groupDescription"
+          >
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row.machineSettingsGroup.groupDescription }}
+            </ng-template>
+          </ngx-datatable-column>
+  
+          <ngx-datatable-column name="{{ '::CssClass' | abpLocalization }}" prop="machineSettingsGroup.cssClass">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row.machineSettingsGroup.cssClass }}
+            </ng-template>
+          </ngx-datatable-column>
+  
+          <ngx-datatable-column
+            name="{{ '::IsEnableable' | abpLocalization }}"
+            prop="machineSettingsGroup.isEnableable"
+          >
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <ng-template
+                [ngIf]="row.machineSettingsGroup.isEnableable"
+                [ngIfThen]="yes"
+                [ngIfElse]="no"
+              ></ng-template>
+  
+              <ng-template #yes>
+                <div class="text-success">
+                  <span [title]="'AbpUi::Yes' | abpLocalization">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </ng-template>
+  
+              <ng-template #no>
+                <div class="text-danger">
+                  <span [title]="'AbpUi::No' | abpLocalization">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </ng-template>
+            </ng-template>
+          </ngx-datatable-column>
+  
+          <ngx-datatable-column
+            name="{{ '::RenderingOrder' | abpLocalization }}"
+            prop="machineSettingsGroup.renderingOrder"
+          >
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row.machineSettingsGroup.renderingOrder }}
+            </ng-template>
+          </ngx-datatable-column>
+  
+          <ngx-datatable-column
+            name="{{ '::ParentToolRenderingOrder' | abpLocalization }}"
+            prop="machineSettingsGroup.parentToolRenderingOrder"
+          >
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row.machineSettingsGroup.parentToolRenderingOrder }}
+            </ng-template>
+          </ngx-datatable-column>
+  
+          <ngx-datatable-column
+            name="{{ '::ParentToolGroupId' | abpLocalization }}"
+            prop="machineSettingsGroup.parentToolGroupId"
+          >
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row.machineSettingsGroup.parentToolGroupId }}
+            </ng-template>
+          </ngx-datatable-column>
+  
+          <!-- <ngx-datatable-column name="{{ '::Tool' | abpLocalization }}" prop="tool.name">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row.tool?.name }}
+            </ng-template>
+          </ngx-datatable-column> -->
+        </ngx-datatable>
+      </div>
+    </div>
+  </abp-page>
+  
+  <abp-modal [busy]="isModalBusy" [(visible)]="isModalOpen">
+    <ng-template #abpHeader>
+      <h3>
+        {{ (selected ? 'AbpUi::Edit' : '::NewMachineSettingsGroup') | abpLocalization }}
+      </h3>
+    </ng-template>
+  
+    <ng-template #abpBody>
+      <form [formGroup]="form" id="tool-group" (ngSubmit)="submitForm()" validateOnSubmit>
+        <div class="mt-2 fade-in-top">
+          <div class="mb-3">
+            <label class="form-label" for="machine-settings-group-group-description">
+              {{ '::GroupDescription' | abpLocalization }} *
+            </label>
+  
+            <input
+              id="machine-settings-group-group-description"
+              formControlName="groupDescription"
+              class="form-control"
+              maxlength="50"
+              autofocus
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="tool-group-css-class">
+              {{ '::CssClass' | abpLocalization }}
+            </label>
+  
+            <input
+              id="machine-settings-group-css-class"
+              formControlName="cssClass"
+              class="form-control"
+              maxlength="50"
+            />
+          </div>
+          <div class="form-check mb-3">
+            <input
+              type="checkbox"
+              id="tool-group-is-enableable"
+              formControlName="isEnableable"
+              class="form-check-input"
+            />
+  
+            <label for="tool-group-is-enableable" class="form-check-label">
+              {{ '::IsEnableable' | abpLocalization }}
+            </label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="tool-group-rendering-order">
+              {{ '::RenderingOrder' | abpLocalization }}
+            </label>
+  
+            <input
+              type="number"
+              id="tool-group-rendering-order"
+              formControlName="renderingOrder"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="tool-group-parent-tool-rendering-order">
+              {{ '::ParentToolRenderingOrder' | abpLocalization }}
+            </label>
+  
+            <input
+              type="number"
+              id="tool-group-parent-tool-rendering-order"
+              formControlName="parentToolRenderingOrder"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="tool-group-parent-tool-group-id">
+              {{ '::ParentToolGroupId' | abpLocalization }}
+            </label>
+  
+            <input
+              type="number"
+              id="tool-group-parent-tool-group-id"
+              formControlName="parentToolGroupId"
+              class="form-control"
+            />
+          </div>
+          <!-- <div class="mb-3">
+            <label class="form-label" for="tool-group-tool-id">
+              {{ '::Tool' | abpLocalization }} *
+            </label>
+            <abp-lookup-input
+              cid="tool-group-tool-id"
+              formControlName="toolId"
+              displayNameProp="name"
+              lookupNameProp="displayName"
+              [getFn]="service.getToolLookup"
+              [editingData]="selected?.tool"
+            ></abp-lookup-input>
+          </div> -->
+        </div>
+      </form>
+    </ng-template>
+  
+    <ng-template #abpFooter>
+      <button type="button" class="btn btn-secondary" abpClose>
+        {{ 'AbpUi::Cancel' | abpLocalization }}
+      </button>
+  
+      <abp-button iconClass="fa fa-check" buttonType="submit" formName="tool-group">
+        {{ 'AbpUi::Save' | abpLocalization }}
+      </abp-button>
+    </ng-template>
+  </abp-modal>
+  

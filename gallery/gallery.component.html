@@ -1,0 +1,14 @@
+<div class="gallery">
+    <div class="image" *ngFor="let image of images">
+      <img [src]="image.src" [alt]="image.alt" (click)="showImage(image)">
+      {{image.instruction}}
+    </div>
+  </div>
+  
+  <!-- Modale per mostrare l'immagine selezionata -->
+  <ng-template #content let-modal>
+    <div class="modal-body">
+      <img [src]="selectedImage.src" [alt]="selectedImage.alt" class="img-fluid">
+
+    </div>
+  </ng-template>

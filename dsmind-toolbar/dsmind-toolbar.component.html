@@ -1,0 +1,9 @@
+<span class="lpx-menu-item-icon toolbar">
+
+    <div class="alarm-badge" *ngIf="bAlarms">
+        <small class="menu-item-badge">{{numAlarms}}</small>
+    </div>
+    <a href="/alarms">
+        <i class="icon-campanella" [ngClass]="{'AllarmiAttivi' : bAlarms}" aria-hidden="true"></i>
+    </a>
+</span>

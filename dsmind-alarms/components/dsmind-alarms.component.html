@@ -1,0 +1,34 @@
+<div class="kwAlarmButtons">
+
+    <button type="submit" class="btn btn-primary btn-block kwAlarmButtons"  (click) ="ResetAllarmi()">
+      RESET ALLARMI
+    </button>
+
+</div>
+<abp-page [title]="'::Alarms' | abpLocalization">
+
+  
+
+<div class="card">
+    <div class="card-body">
+
+        <ngx-datatable [rows]="data.alarms" default>
+        <ngx-datatable-column name="{{ '::AlarmCode' | abpLocalization }}" prop="alarmCode">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row.code }}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column
+          name="{{ '::AlarmDescription' | abpLocalization }}"
+          prop="AlarmDescription"
+        >
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row.description }}
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </div>
+       
+  </div>
+</abp-page>

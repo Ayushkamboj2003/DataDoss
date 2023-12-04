@@ -1,0 +1,299 @@
+<abp-page>
+ 
+
+  <div id="DashboardWidgetsArea">
+    <div class="card-body">
+      
+    </div>
+
+    <div class="row">
+
+
+      <div class="col col-md-4 col-lg-4">
+        <div class="card">
+          <!-- Widget -->
+          <div class="row KwWidgetTitleRow">
+            <div class="col-auto KwWidgetStationTitle"><h2>Dimensionale</h2></div>
+            <div class="col-auto KwWidgetSettings">
+              <div ngbDropdown container="body" class="d-inline-block">
+                <button
+                  class="btn btn-primary btn-sm dropdown-toggle"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  ngbDropdownToggle
+                >
+                  <i class="fa fa-cog me-1"></i>{{ '::Actions' | abpLocalization }}
+                </button>
+                <div ngbDropdownMenu>
+                  <button *abpPermission="''" ngbDropdownItem (click)="navigateToDestinationView(3)">
+                    {{ '::Impostazioni' | abpLocalization }}
+                  </button>
+                  <button *abpPermission="''" ngbDropdownItem >
+                    {{ '::Reset Corrente' | abpLocalization }}
+                  </button>
+                </div>
+              </div>
+          </div>
+          </div>
+          
+          
+        
+          <!-- Fine Widget -->
+          <abp-chart type="doughnut" [data]="Station0Counter" [options]="Station0Options"></abp-chart>
+        </div>
+      </div>
+
+      <div class="col col-md-4 col-lg-4">
+        <div class="card">
+          <!-- Widget -->
+          <div class="row KwWidgetTitleRow">
+            <div class="col-auto KwWidgetStationTitle"><h2>Superficiale A</h2></div>
+            <div class="col-auto KwWidgetSettings">
+              <div ngbDropdown container="body" class="d-inline-block">
+                <button
+                  class="btn btn-primary btn-sm dropdown-toggle"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  ngbDropdownToggle
+                >
+                  <i class="fa fa-cog me-1"></i>{{ '::Actions' | abpLocalization }}
+                </button>
+                <div ngbDropdownMenu>
+                  <button *abpPermission="''" ngbDropdownItem (click)="navigateToDestinationView(1)">
+                    {{ '::Impostazioni' | abpLocalization }}
+                  </button>
+                  <button *abpPermission="''" ngbDropdownItem >
+                    {{ '::Reset Corrente' | abpLocalization }}
+                  </button>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        
+          <!-- Fine Widget -->
+          <abp-chart type="doughnut" [data]="Station1Counter" [options]="Station1Options"></abp-chart>
+        </div>
+      </div>
+
+
+      <div class="col col-md-4 col-lg-4">
+        <div class="card">
+          <!-- Widget -->
+          <div class="row KwWidgetTitleRow">
+            <div class="col-auto KwWidgetStationTitle"><h2>Superficiale B</h2></div>
+            <div class="col-auto KwWidgetSettings">
+              <div ngbDropdown container="body" class="d-inline-block">
+                <button
+                  class="btn btn-primary btn-sm dropdown-toggle"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  ngbDropdownToggle
+                >
+                  <i class="fa fa-cog me-1"></i>{{ '::Actions' | abpLocalization }}
+                </button>
+                <div ngbDropdownMenu>
+                  <button *abpPermission="''" ngbDropdownItem (click)="navigateToDestinationView(4)">
+                    {{ '::Impostazioni' | abpLocalization }}
+                  </button>
+                  <button *abpPermission="''" ngbDropdownItem >
+                    {{ '::Reset Corrente' | abpLocalization }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Fine Widget -->
+          <abp-chart type="doughnut" [data]="Station2Counter" [options]="Station2Options"></abp-chart>
+        </div>
+      </div>
+
+      <div class="col col-md-4 col-lg-4">
+        <div class="card">
+          <!-- Widget -->
+          <div class="row KwWidgetTitleRow">
+            <div class="col-auto KwWidgetStationTitle"><h2>Superficiale C</h2></div>
+            <div class="col-auto KwWidgetSettings">
+              <div ngbDropdown container="body" class="d-inline-block">
+                <button
+                  class="btn btn-primary btn-sm dropdown-toggle"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  ngbDropdownToggle
+                >
+                  <i class="fa fa-cog me-1"></i>{{ '::Actions' | abpLocalization }}
+                </button>
+                <div ngbDropdownMenu>
+                  <button *abpPermission="''" ngbDropdownItem (click)="navigateToDestinationView(5)">
+                    {{ '::Impostazioni' | abpLocalization }}
+                  </button>
+                  <button *abpPermission="''" ngbDropdownItem >
+                    {{ '::Reset Corrente' | abpLocalization }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Fine Widget -->
+          <abp-chart type="doughnut" [data]="Station3Counter" [options]="Station3Options"></abp-chart>
+        </div>
+      </div>
+
+      <div class="col col-md-4 col-lg-4">
+        <div class="card">
+          <!-- Widget -->
+          <div class="row KwWidgetTitleRow">
+            <div class="col-auto KwWidgetStationTitle"><h2>Superficiale D</h2></div>
+            <div class="col-auto KwWidgetSettings">
+              <div ngbDropdown container="body" class="d-inline-block">
+                <button
+                  class="btn btn-primary btn-sm dropdown-toggle"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  ngbDropdownToggle
+                >
+                  <i class="fa fa-cog me-1"></i>{{ '::Actions' | abpLocalization }}
+                </button>
+                <div ngbDropdownMenu>
+                  <button *abpPermission="''" ngbDropdownItem (click)="navigateToDestinationView(6)">
+                    {{ '::Impostazioni' | abpLocalization }}
+                  </button>
+                  <button *abpPermission="''" ngbDropdownItem >
+                    {{ '::Reset Corrente' | abpLocalization }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Fine Widget -->
+          <abp-chart type="doughnut" [data]="Station4Counter" [options]="Station4Options"></abp-chart>
+        </div>
+      </div>
+
+      <div class="col col-md-4 col-lg-4">
+        <div class="card">
+          <!-- Widget -->
+          <div class="row KwWidgetTitleRow">
+            <div class="col-auto KwWidgetStationTitle"><h2>Superficiale E</h2></div>
+            <div class="col-auto KwWidgetSettings">
+              <div ngbDropdown container="body" class="d-inline-block">
+                <button
+                  class="btn btn-primary btn-sm dropdown-toggle"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  ngbDropdownToggle
+                >
+                  <i class="fa fa-cog me-1"></i>{{ '::Actions' | abpLocalization }}
+                </button>
+                <div ngbDropdownMenu>
+                  <button *abpPermission="''" ngbDropdownItem (click)="navigateToDestinationView(7)">
+                    {{ '::Impostazioni' | abpLocalization }}
+                  </button>
+                  <button *abpPermission="''" ngbDropdownItem >
+                    {{ '::Reset Corrente' | abpLocalization }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Fine Widget -->
+          <abp-chart type="doughnut" [data]="Station5Counter" [options]="Station5Options"></abp-chart>
+        </div>
+      </div>
+
+      <div class="col col-md-12 col-lg-6">
+        <div class="card">
+          <abp-chart type="bar" [data]="totalCounter"  [options]="totalCounterOptions" ></abp-chart>
+          <abp-chart type="bar" [data]="boxCounter" [options]="boxCounterOptions"></abp-chart>
+          
+        </div>
+      </div>
+      
+      <div class="col col-md-12 col-lg-6">
+        <div class="card">
+          <abp-chart type="bar" [data]="productionInfo" [options]="productionInfoOptions"></abp-chart>
+          <abp-chart type="bar" [data]="productionInfoPerSecond" [options]="productionInfoPerSecondOptions"></abp-chart>
+        </div>
+
+      </div>
+
+      <div class="col col-md-12 col-lg-6">
+        <div class="card kwConsumiEnergia">
+          <!--<apx-chart [series]="voltmeterData" [plotOptions]="chartOptions"></apx-chart>-->
+          <div id="chartVolt" class="kwConsumoEnergia">
+            <apx-chart
+              [series]="voltChartOptions.series"
+              [chart]="voltChartOptions.chart"
+              [plotOptions]="voltChartOptions.plotOptions"
+              [labels]="voltChartOptions.labels"
+              [fill]="voltChartOptions.fill"
+              [stroke]="voltChartOptions.stroke"
+            ></apx-chart>
+          </div>
+          <div id="chartVA" class="kwConsumoEnergia">
+            <apx-chart
+              [series]="VAChartOptions.series"
+              [chart]="VAChartOptions.chart"
+              [plotOptions]="VAChartOptions.plotOptions"
+              [labels]="VAChartOptions.labels"
+              [fill]="VAChartOptions.fill"
+              [stroke]="VAChartOptions.stroke"
+            ></apx-chart>
+          </div>
+          <div id="chartWatt" class="kwConsumoEnergia">
+            <apx-chart
+              [series]="wattChartOptions.series"
+              [chart]="wattChartOptions.chart"
+              [plotOptions]="wattChartOptions.plotOptions"
+              [labels]="wattChartOptions.labels"
+              [fill]="wattChartOptions.fill"
+              [stroke]="wattChartOptions.stroke"
+            ></apx-chart>
+          </div>
+        </div>
+      </div>
+
+      <div class="col col-md-6 col-lg-6">
+        <div class="card">
+          <!-- Widget -->
+          <div class="image-container">
+            <img alt="Loading..." src="http://127.0.0.1:8081/live_0?image_id=0&n_loop=1&overlap_info=1&fps=1&quality=1" width="100%"/>
+          </div>
+          <!-- Fine Widget -->
+        </div>
+      </div>
+      
+      <!--<div class="col col-md-12 col-lg-6">
+        <div class="card">
+          <abp-chart type="radar" [data]="boxCounter"></abp-chart>
+        </div>
+      </div>-->
+      
+    </div>
+
+    <!--<div class="row">
+      <div class="col col-md-12 col-lg-6" *abpPermission="'AuditLogging.AuditLogs'">
+        <abp-error-rate-widget #errorRateWidget [height]="250"></abp-error-rate-widget>
+      </div>
+
+      <div class="col col-md-12 col-lg-6" *abpPermission="'AuditLogging.AuditLogs'">
+        <abp-average-execution-duration-widget
+          #averageExecutionDurationWidget
+          [height]="250"
+        ></abp-average-execution-duration-widget>
+      </div>
+
+      <div class="col col-md-12 col-lg-6" *abpPermission="'Saas.Tenants'">
+        <abp-editions-usage-widget #editionsUsageWidget [height]="250"></abp-editions-usage-widget>
+      </div>
+
+      <div class="col col-md-12 col-lg-6" *abpPermission="'Saas.Tenants'">
+        <abp-latest-tenants-widget
+          #latestTenantsWidget
+          [minHeight]="250"
+        ></abp-latest-tenants-widget>
+      </div>
+    </div>-->
+    
+  </div>
+</abp-page>

@@ -1,0 +1,60 @@
+<abp-page>
+
+  <div class='demo-app'>
+    <div class='demo-app-main'>
+      <full-calendar [options]='calendarOptions'>
+        <ng-template #eventContent let-arg>
+          <div class="kwCalendarEvent" *ngIf="arg.event.extendedProps.type == 'working'">
+            <div class="kwCalendarTime">
+              Commessa: {{ arg.event.title }}<br/>
+              Articolo: {{ arg.event.extendedProps.itemCode }}
+            </div>
+            <img class="kwCalendarImg" [src]="arg.event.extendedProps.articoleimg" width="150px"/>
+            <div class="kwCalendarBtns">
+              <button type="button" id="articleVideo" name="articleVideo" class="btn btn-primary kwSetupVideoButton"  data-toggle="modal" [attr.data-target]="'#videoModal' + arg.event.id" 
+                                                                                                                      (click)="openSetupVideo(contentvideo, arg.event.extendedProps.setupvideo)">Setup Video</button>
+              <button type="button" id="articleVideo" name="articleVideo" class="btn btn-primary kwBookDifettiButton"  data-toggle="modal" 
+                                                                                                                      (click)="openBookDifetti(bookdifetti)">Book Difetti</button>
+            </div>
+          </div>
+          <div class="kwSetupEvent"  *ngIf="arg.event.extendedProps.type == 'setup'">
+            <i>{{ arg.event.title }}</i>
+          </div>
+          <div class="kwManutenzioneEvent"  *ngIf="arg.event.extendedProps.type == 'manutenzione'">
+            <i>{{ arg.event.title }}</i>
+          </div>
+        </ng-template>
+      </full-calendar>
+    </div>
+  </div>
+
+  <!-- Modal -->
+
+  <ng-template #contentvideo let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Video</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <video autoplay controls width="100%">
+        <source [src]="modalSetupVideoUrl" type="video/mp4">
+        Il tuo browser non supporta il tag video.
+      </video>
+    </div>
+  </ng-template>
+
+  <ng-template #bookdifetti let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Book Difetti</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-gallery></app-gallery>
+    </div>
+  </ng-template>
+
+</abp-page>

@@ -1,0 +1,50 @@
+<div class="KwTopbar row">
+
+
+    
+
+    <div class="KwTopBar1 col col-md-9 col-lg-9">
+        <div class="row">
+
+                <!--<div class="card col col-md-3 col-lg-3 KwStatoMacchina">
+                    <div class="card-header">Stato Macchina</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{sMachineStatusDescription}}</h5>
+                    </div>
+                </div>-->
+
+                <div class="card  col col-md-3 col-lg-3 KwArticoloCorrente">
+                    <div class="card-header">Articolo Corrente</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{sharedService.currentRecipeDescr}}</h5>
+                    </div>
+                </div>
+
+                <div class="card  col col-md-3 col-lg-3 KwLottoCorrente">
+                    <div class="card-header">Lotto Corrente</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{sharedService.currentLotto}}</h5>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <div class="KwTopBar2 col col-md-3 col-lg-3">
+        <div class="kwStartStopButtons">
+
+            <div class="kwStartStop">
+                <select id="InspectionSelect" class="form-select KwInspectionSelect" [(ngModel)]="nMachineInspectionMode">
+                    <option  class="KwInspectionOption" style="font-weight: bold;" value="0" ng-reflect-value="2">Ispezione</option>
+                    <option  class="KwInspectionOption" style="font-weight: bold;" value="1" ng-reflect-value="2">Calibrazione</option>
+                </select>
+                <button type="button" class="btn btn-primary mb-1 start-button" id="btnStart" name="btnStart" (click)="startMachine()"><label class="form-check-label">START</label></button>
+                <button type="button" class="btn btn-primary mb-1 stop-button" id="btnStop" name="btnStop" (click)="stopMachine()"><label class="form-check-label">STOP</label></button>
+
+                <!--<input data-toggle="toggle" data-width="180" data-height="80" type="checkbox" id="StartStopButton" name="StartStopButton" (change)="onStartStop($event)" 
+                data-on="<i class='fa fa-pause'></i> Pause" data-off="<i class='fa fa-play' ></i> Play" [checked]="!isMachineRunning"/>-->
+            </div>
+
+
+        </div>
+    </div>
+</div>
